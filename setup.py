@@ -22,7 +22,7 @@ setup(
     license='MIT',
     url='https://github.com/furious-luke/pytest-polecat',
     description='Provides Polecat pytest fixtures',
-    long_description=read('README.rst'),
+    long_description=read('README.md'),
     py_modules=['pytest_polecat'],
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
     install_requires=['pytest>=3.5.0'],
