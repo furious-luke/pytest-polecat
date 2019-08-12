@@ -14,7 +14,7 @@ def read(fname):
 
 setup(
     name='pytest-polecat',
-    version='0.0.1',
+    version='0.0.2',
     author='Luke Hodkinson',
     author_email='luke.hodkinson@gmail.com',
     maintainer='Luke Hodkinson',
