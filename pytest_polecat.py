@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
+import copy
+
 import pytest
+from polecat.core.config import RootConfig, default_config
+from polecat.model import Blueprint, default_blueprint
 from polecat.test import fixture
 
 
@@ -38,3 +42,25 @@ def db(migrateddb):
 def factory():
     with fixture.factory() as f:
         yield f
+
+
+@pytest.fixture
+def push_blueprint():
+    old_bp = default_blueprint.get_target()
+    try:
+        bp = copy.deepcopy(old_bp)
+        default_blueprint.set_target(bp)
+        yield bp
+    finally:
+        default_blueprint.set_target(old_bp)
+
+
+@pytest.fixture
+def push_config():
+    old_cfg = default_config.get_target()
+    try:
+        cfg = RootConfig(prefix='POLECAT')
+        default_config.set_target(cfg)
+        yield cfg
+    finally:
+        default_config.set_target(old_cfg)
